@@ -2,4 +2,6 @@
 
 2 - 7 Solve the 8 x 8 Queen problem using backtracking.
 
+Programming Language: C++
+
 Description: Make sure each queen on the board is not in the attack path of another queen.
