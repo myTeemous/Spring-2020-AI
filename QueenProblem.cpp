@@ -42,19 +42,15 @@ void solveQueenProblem(int currentRow, int numberOfQueens, std::vector<int>& que
 	//Base case: When the current row is equal to the total number of queens that need to be placed, 
 	//we know that we have found a valid queen placement on every row.
 	if (currentRow == numberOfQueens) {
-		
 		solutions.push_back(queenPlacements);
 	}
 	else {
-		
 		//Iterate through each column position at the current row and 
 		//check if the current position is a valid queen placement
 		for (int col = 0; col < numberOfQueens; col++) {
-			
 			queenPlacements.push_back(col);
 
 			if (placementsValid(queenPlacements)) {
-				
 				//If the placement is valid, move to the next row and repeat the process
 				solveQueenProblem(currentRow + 1, numberOfQueens, queenPlacements, solutions);
 			}
@@ -71,11 +67,9 @@ bool placementsValid(std::vector<int>& queenPlacements) {
 	int rowID = queenPlacements.size() - 1;
 
 	for (int i = 0; i < rowID; i++) {
-		
 		int difference = std::abs(queenPlacements[i] - queenPlacements[rowID]);
 		
 		if (difference == 0 || difference == rowID - i) {
-
 			return false;
 		}
 	}
@@ -91,12 +85,10 @@ void printSolutions(std::vector<std::vector<int>>& solutions) {
 	int solutionCount = 1;
 
 	for (const auto& solution : solutions) {
-
 		//Make an empty chess board. A zero represents an empty position
 		std::vector<std::vector<int>> board(ROW, std::vector<int>(COLUMN, 0));
 
 		for (int row = 0; row < solution.size(); row++) {
-
 			//Place the queens on the board. A one represents a queen
 			board[solution[row]][row] = 1;
 		}
@@ -105,9 +97,7 @@ void printSolutions(std::vector<std::vector<int>>& solutions) {
 
 		//Print the board for the current solution
 		for (int i = 0; i < ROW; i++) {
-
 			for (int k = 0; k < COLUMN; k++) {
-
 				std::cout << board[i][k] << " ";
 			}
 			std::cout << "\n";
